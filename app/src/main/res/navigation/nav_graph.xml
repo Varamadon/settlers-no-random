@@ -25,4 +25,9 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/addTileFragment"
+        android:name="me.varam.settlers.view.AddTileFragment"
+        android:label="fragment_add_tile"
+        tools:layout="@layout/fragment_add_tile" />
 </navigation>
