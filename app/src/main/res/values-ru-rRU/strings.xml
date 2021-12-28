@@ -9,7 +9,17 @@
     <string name="hello_first_fragment">Привет первый фрагмент</string>
     <string name="hello_blank_fragment">Привет пустой фрагмент</string>
     <string name="hello_second_fragment">Привет второй фрагмент. Arg: %1$s</string>
-    <string name="add_tile_title">Добавить тайл</string>
+    <string name="add_tile_label">Добавить тайл</string>
     <string name="done">Готово</string>
     <string name="add_one_more">Добавить ещё один</string>
+    <string name="red_player">Красный игрок</string>
+    <string name="white_player">Белый игрок</string>
+    <string name="brown_player">Коричневый игрок</string>
+    <string name="blue_player">Синий игрок</string>
+    <string name="yellow_player">Желтый игрок</string>
+    <string name="orange_player">Оранжевый игрок</string>
+    <string name="black_player">Черный игрок</string>
+    <string name="green_player">Зеленый игрок</string>
+    <string name="no_player">Нет игрока</string>
+    <string name="add">Добавить</string>
 </resources>

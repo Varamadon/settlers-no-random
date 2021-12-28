@@ -7,23 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".view.AddTileFragment">
 
-    <TextView
-        android:id="@+id/addTileTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/add_tile_title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
-        android:id="@+id/tileAddDoneButton"
+        android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
-        android:text="@string/done"
+        android:text="@string/add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -31,28 +20,29 @@
     <Spinner
         android:id="@+id/tileResourceSelector"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addTileTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/playerColorLabel" />
 
     <Spinner
         android:id="@+id/tileTokenSelector"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintStart_toEndOf="@+id/tileResourceSelector"
-        app:layout_constraintTop_toBottomOf="@+id/addTileTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/playerColorLabel" />
 
-    <Button
-        android:id="@+id/addOneMoreTileButton"
+    <TextView
+        android:id="@+id/playerColorLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="@string/add_one_more"
-        app:layout_constraintBottom_toTopOf="@+id/tileAddDoneButton"
+        android:layout_marginTop="40dp"
+        android:text="@string/no_player"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

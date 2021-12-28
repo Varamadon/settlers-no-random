@@ -5,10 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import me.varam.settlers.R
+import me.varam.settlers.common.validTokenNumbers
+import me.varam.settlers.databinding.FragmentAddTileBinding
 import me.varam.settlers.model.Game
 import me.varam.settlers.model.Player
 import me.varam.settlers.model.PlayerColor
+import me.varam.settlers.model.ResourceType
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,21 +26,56 @@ private const val PLAYER_COLOR = "playerColor"
 class AddTileFragment : Fragment() {
     private lateinit var playerColor: PlayerColor
     private lateinit var player: Player
+    private lateinit var binding: FragmentAddTileBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             playerColor = it.get(PLAYER_COLOR) as PlayerColor
         }
+
+        prepareTest()
+
         player = Game.getPlayerByColor(playerColor)!!
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_tile, container, false)
+        binding = FragmentAddTileBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val resourceSelectorAdapter = ArrayAdapter(
+            this.requireContext(),
+            android.R.layout.simple_spinner_item,
+            ResourceType.values()
+        )
+        resourceSelectorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.tileResourceSelector.adapter = resourceSelectorAdapter
+
+        val tokenSelectorAdapter = ArrayAdapter(
+            this.requireContext(),
+            android.R.layout.simple_spinner_item,
+            validTokenNumbers
+        )
+        tokenSelectorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.tileTokenSelector.adapter = tokenSelectorAdapter
+
+        val playerColorLabel = binding.playerColorLabel
+        playerColorLabel.setText(playerNameMap[playerColor]!!)
+        playerColorLabel.setTextColor(playerColorMap[playerColor]!!)
+    }
+
+    private fun prepareTest() {
+        val testPlayer = Player(PlayerColor.ORANGE)
+        playerColor = testPlayer.color
+        Game.addPlayer(testPlayer)
     }
 
     companion object {

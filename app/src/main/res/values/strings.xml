@@ -11,7 +11,17 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="add_tile_title">Add tile</string>
+    <string name="add_tile_label">Add tile</string>
     <string name="done">Done</string>
     <string name="add_one_more">Add one more</string>
+    <string name="red_player">Red player</string>
+    <string name="white_player">White player</string>
+    <string name="brown_player">Brown player</string>
+    <string name="blue_player">Blue player</string>
+    <string name="yellow_player">Yellow player</string>
+    <string name="orange_player">Orange player</string>
+    <string name="black_player">Black player</string>
+    <string name="green_player">Green player</string>
+    <string name="no_player">No player</string>
+    <string name="add">Add</string>
 </resources>

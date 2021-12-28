@@ -1,6 +1,7 @@
 package me.varam.settlers.model
 
 import me.varam.settlers.common.exceptions.IllegalNumberTokenException
+import me.varam.settlers.common.validTokenNumbers
 import me.varam.settlers.model.ResourceType
 
 /**
@@ -9,7 +10,7 @@ import me.varam.settlers.model.ResourceType
  **/
 data class Tile (val resourceType: ResourceType, val numberToken: Int) {
     init {
-        if (numberToken == 7 || numberToken < 2 || numberToken > 12) {
+        if (!validTokenNumbers.contains(numberToken)) {
             throw IllegalNumberTokenException()
         }
     }
