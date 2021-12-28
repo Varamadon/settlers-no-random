@@ -7,7 +7,7 @@ import kotlin.math.abs
  * Created : 11.12.2021
  **/
 class Player(val color: PlayerColor) {
-    private val tiles: MutableSet<Tile> = mutableSetOf()
+    private val tiles: MutableList<Tile> = mutableListOf()
     private val accumulatedResources: MutableMap<ResourceType, Double> = mutableMapOf(
         Pair(ResourceType.LUMBER, 0.0),
         Pair(ResourceType.BRICK, 0.0),

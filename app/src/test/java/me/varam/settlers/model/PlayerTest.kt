@@ -22,6 +22,19 @@ internal class PlayerTest {
     }
 
     @Test
+    fun testEarnWithTwoToken6For8Turns() {
+        val player = getTestPlayer()
+        player.addTile(Tile(ResourceType.LUMBER, 6))
+        player.addTile(Tile(ResourceType.LUMBER, 6))
+        var earned = 0
+        for (i in 1..8) {
+            val income = player.getIncome(1.0)
+            earned += income[ResourceType.LUMBER]!!
+        }
+        assertEquals(2, earned)
+    }
+
+    @Test
     fun testEarnWithToken6For7Turns() {
         val player = getTestPlayer()
         player.addTile(Tile(ResourceType.LUMBER, 6))

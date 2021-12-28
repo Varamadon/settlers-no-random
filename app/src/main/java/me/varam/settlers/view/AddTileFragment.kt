@@ -9,10 +9,7 @@ import android.widget.ArrayAdapter
 import me.varam.settlers.R
 import me.varam.settlers.common.validTokenNumbers
 import me.varam.settlers.databinding.FragmentAddTileBinding
-import me.varam.settlers.model.Game
-import me.varam.settlers.model.Player
-import me.varam.settlers.model.PlayerColor
-import me.varam.settlers.model.ResourceType
+import me.varam.settlers.model.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -51,14 +48,24 @@ class AddTileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val resourceSelectorAdapter = ArrayAdapter(
-            this.requireContext(),
-            android.R.layout.simple_spinner_item,
-            ResourceType.values()
-        )
-        resourceSelectorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.tileResourceSelector.adapter = resourceSelectorAdapter
+        prepareResourceSelector()
+        prepareTokenSelector()
+        preparePlayerLabel()
 
+        binding.addButton.setOnClickListener {
+            val selectedResourceType = binding.tileResourceSelector.selectedItem as ResourceType
+            val selectedToken = binding.tileTokenSelector.selectedItem as Int
+            player.addTile(Tile(selectedResourceType, selectedToken))
+        }
+    }
+
+    private fun preparePlayerLabel() {
+        val playerColorLabel = binding.playerColorLabel
+        playerColorLabel.setText(playerNameMap[playerColor]!!)
+        playerColorLabel.setTextColor(playerColorMap[playerColor]!!)
+    }
+
+    private fun prepareTokenSelector() {
         val tokenSelectorAdapter = ArrayAdapter(
             this.requireContext(),
             android.R.layout.simple_spinner_item,
@@ -66,10 +73,16 @@ class AddTileFragment : Fragment() {
         )
         tokenSelectorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.tileTokenSelector.adapter = tokenSelectorAdapter
+    }
 
-        val playerColorLabel = binding.playerColorLabel
-        playerColorLabel.setText(playerNameMap[playerColor]!!)
-        playerColorLabel.setTextColor(playerColorMap[playerColor]!!)
+    private fun prepareResourceSelector() {
+        val resourceSelectorAdapter = ArrayAdapter(
+            this.requireContext(),
+            android.R.layout.simple_spinner_item,
+            ResourceType.values()
+        )
+        resourceSelectorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.tileResourceSelector.adapter = resourceSelectorAdapter
     }
 
     private fun prepareTest() {
