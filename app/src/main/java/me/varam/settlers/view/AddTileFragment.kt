@@ -11,8 +11,7 @@ import me.varam.settlers.common.validTokenNumbers
 import me.varam.settlers.databinding.FragmentAddTileBinding
 import me.varam.settlers.model.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
 private const val PLAYER_COLOR = "playerColor"
 
 /**

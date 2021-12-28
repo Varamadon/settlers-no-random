@@ -7,6 +7,11 @@
         <entry key="..\:/Code/settlers-no-random/app/src/main/res/layout/content_main.xml" value="0.2" />
         <entry key="..\:/Code/settlers-no-random/app/src/main/res/layout/fragment_add_tile.xml" value="0.264" />
         <entry key="..\:/Code/settlers-no-random/app/src/main/res/layout/fragment_first.xml" value="0.264" />
+        <entry key="..\:/Code/settlers-no-random/app/src/main/res/layout/fragment_income.xml" value="0.16621376811594202" />
+        <entry key="..\:/Code/settlers-no-random/app/src/main/res/layout/fragment_main.xml" value="0.536" />
+        <entry key="..\:/Code/settlers-no-random/app/src/main/res/layout/fragment_player.xml" value="0.16495726495726495" />
+        <entry key="..\:/Code/settlers-no-random/app/src/main/res/layout/fragment_players.xml" value="0.176" />
+        <entry key="..\:/Code/settlers-no-random/app/src/main/res/layout/fragment_players_list.xml" value="0.4" />
         <entry key="..\:/Code/settlers-no-random/app/src/main/res/layout/fragment_second.xml" value="0.18432971014492755" />
         <entry key="..\:/Code/settlers-no-random/app/src/main/res/menu/menu_main.xml" value="0.23645833333333333" />
       </map>

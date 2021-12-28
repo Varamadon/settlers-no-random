@@ -3,31 +3,81 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/AddTileFragment">
+    app:startDestination="@id/startFragment">
 
-    <fragment
-        android:id="@+id/FirstFragment"
-        android:name="me.varam.settlers.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="me.varam.settlers.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
     <fragment
         android:id="@+id/AddTileFragment"
         android:name="me.varam.settlers.view.AddTileFragment"
         android:label="@string/add_tile_label"
-        tools:layout="@layout/fragment_add_tile" />
+        tools:layout="@layout/fragment_add_tile" >
+        <action
+            android:id="@+id/action_AddTileFragment_to_tileAddedFragment"
+            app:destination="@id/tileAddedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="me.varam.settlers.view.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_AddTileFragment"
+            app:destination="@id/AddTileFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tileAddedFragment"
+        android:name="me.varam.settlers.view.TileAddedFragment"
+        android:label="fragment_tile_added"
+        tools:layout="@layout/fragment_tile_added" >
+        <action
+            android:id="@+id/action_tileAddedFragment_to_AddTileFragment"
+            app:destination="@id/AddTileFragment" />
+        <action
+            android:id="@+id/action_tileAddedFragment_to_playerAddedFragment"
+            app:destination="@id/playerAddedFragment" />
+        <action
+            android:id="@+id/action_tileAddedFragment_to_playerFragment"
+            app:destination="@id/playerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playerAddedFragment"
+        android:name="me.varam.settlers.view.PlayerAddedFragment"
+        android:label="fragment_player_added"
+        tools:layout="@layout/fragment_player_added" >
+        <action
+            android:id="@+id/action_playerAddedFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="me.varam.settlers.view.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_playerFragment"
+            app:destination="@id/playerFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_incomeFragment"
+            app:destination="@id/incomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playerFragment"
+        android:name="me.varam.settlers.view.PlayerFragment"
+        android:label="fragment_player"
+        tools:layout="@layout/fragment_player" >
+        <action
+            android:id="@+id/action_playerFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/incomeFragment"
+        android:name="me.varam.settlers.view.IncomeFragment"
+        android:label="fragment_income"
+        tools:layout="@layout/fragment_income" >
+        <action
+            android:id="@+id/action_incomeFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>
