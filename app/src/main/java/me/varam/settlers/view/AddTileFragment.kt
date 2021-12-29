@@ -6,13 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.navigation.fragment.findNavController
 import me.varam.settlers.R
 import me.varam.settlers.common.validTokenNumbers
 import me.varam.settlers.databinding.FragmentAddTileBinding
 import me.varam.settlers.model.*
 
 
-private const val PLAYER_COLOR = "playerColor"
+const val PLAYER_COLOR = "playerColor"
 
 /**
  * A simple [Fragment] subclass.
@@ -22,6 +23,7 @@ private const val PLAYER_COLOR = "playerColor"
 class AddTileFragment : Fragment() {
     private lateinit var playerColor: PlayerColor
     private lateinit var player: Player
+
     private lateinit var binding: FragmentAddTileBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,15 +53,24 @@ class AddTileFragment : Fragment() {
         prepareTokenSelector()
         preparePlayerLabel()
 
-        binding.addButton.setOnClickListener {
-            val selectedResourceType = binding.tileResourceSelector.selectedItem as ResourceType
-            val selectedToken = binding.tileTokenSelector.selectedItem as Int
+        binding.addTileAddButton.setOnClickListener {
+            val selectedResourceType = binding.addTileResourceSelector.selectedItem as ResourceType
+            val selectedToken = binding.addTileTokenSelector.selectedItem as Int
             player.addTile(Tile(selectedResourceType, selectedToken))
+
+            findNavController().navigate(
+                R.id.action_AddTileFragment_to_tileAddedFragment,
+                Bundle().apply {
+                    putSerializable(PLAYER_COLOR, playerColor)
+                    putSerializable(RESOURCE_ADDED, selectedResourceType)
+                    putInt(TOKEN_ADDED, selectedToken)
+                }
+            )
         }
     }
 
     private fun preparePlayerLabel() {
-        val playerColorLabel = binding.playerColorLabel
+        val playerColorLabel = binding.addTilePlayerColorLabel
         playerColorLabel.setText(playerNameMap[playerColor]!!)
         playerColorLabel.setTextColor(playerColorMap[playerColor]!!)
     }
@@ -71,7 +82,7 @@ class AddTileFragment : Fragment() {
             validTokenNumbers
         )
         tokenSelectorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.tileTokenSelector.adapter = tokenSelectorAdapter
+        binding.addTileTokenSelector.adapter = tokenSelectorAdapter
     }
 
     private fun prepareResourceSelector() {
@@ -81,7 +92,7 @@ class AddTileFragment : Fragment() {
             ResourceType.values()
         )
         resourceSelectorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.tileResourceSelector.adapter = resourceSelectorAdapter
+        binding.addTileResourceSelector.adapter = resourceSelectorAdapter
     }
 
     private fun prepareTest() {

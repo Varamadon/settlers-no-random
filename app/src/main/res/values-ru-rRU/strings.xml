@@ -22,4 +22,9 @@
     <string name="green_player">Зеленый игрок</string>
     <string name="no_player">Нет игрока</string>
     <string name="add">Добавить</string>
+    <string name="tile_added">Тайл добавлен</string>
+    <string name="number_token">Числовой токен</string>
+    <string name="resource">Ресурс</string>
+    <string name="revert">Отменить</string>
+    <string name="no_value">Нет значения</string>
 </resources>

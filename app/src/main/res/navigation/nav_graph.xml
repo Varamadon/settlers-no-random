@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/startFragment">
+    app:startDestination="@id/AddTileFragment">
 
     <fragment
         android:id="@+id/AddTileFragment"
@@ -29,8 +29,8 @@
     <fragment
         android:id="@+id/tileAddedFragment"
         android:name="me.varam.settlers.view.TileAddedFragment"
-        android:label="fragment_tile_added"
-        tools:layout="@layout/fragment_tile_added" >
+        android:label="@string/tile_added"
+        tools:layout="@layout/fragment_tile_added">
         <action
             android:id="@+id/action_tileAddedFragment_to_AddTileFragment"
             app:destination="@id/AddTileFragment" />

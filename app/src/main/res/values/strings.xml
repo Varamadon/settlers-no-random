@@ -24,4 +24,9 @@
     <string name="green_player">Green player</string>
     <string name="no_player">No player</string>
     <string name="add">Add</string>
+    <string name="tile_added">Tile added</string>
+    <string name="number_token">Number token</string>
+    <string name="resource">Resource</string>
+    <string name="revert">Revert</string>
+    <string name="no_value">No value</string>
 </resources>
