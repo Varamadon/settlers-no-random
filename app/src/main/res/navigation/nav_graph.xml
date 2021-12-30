@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/AddTileFragment">
+    app:startDestination="@id/addTileFragment">
 
     <fragment
-        android:id="@+id/AddTileFragment"
+        android:id="@+id/addTileFragment"
         android:name="me.varam.settlers.view.AddTileFragment"
         android:label="@string/add_tile_label"
         tools:layout="@layout/fragment_add_tile" >
         <action
-            android:id="@+id/action_AddTileFragment_to_tileAddedFragment"
+            android:id="@+id/action_addTileFragment_to_tileAddedFragment"
             app:destination="@id/tileAddedFragment" />
     </fragment>
     <fragment
@@ -20,8 +20,8 @@
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
         <action
-            android:id="@+id/action_startFragment_to_AddTileFragment"
-            app:destination="@id/AddTileFragment" />
+            android:id="@+id/action_startFragment_to_addTileFragment"
+            app:destination="@id/addTileFragment" />
         <action
             android:id="@+id/action_startFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
@@ -32,8 +32,8 @@
         android:label="@string/tile_added"
         tools:layout="@layout/fragment_tile_added">
         <action
-            android:id="@+id/action_tileAddedFragment_to_AddTileFragment"
-            app:destination="@id/AddTileFragment" />
+            android:id="@+id/action_tileAddedFragment_to_addTileFragment"
+            app:destination="@id/addTileFragment" />
         <action
             android:id="@+id/action_tileAddedFragment_to_playerAddedFragment"
             app:destination="@id/playerAddedFragment" />

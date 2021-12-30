@@ -12,8 +12,8 @@ object Game{
         playersByColor[player.color] = player
     }
 
-    public fun getPlayerByColor(playerColor: PlayerColor): Player? {
-        return playersByColor[playerColor]
+    public fun getPlayerByColor(playerColor: PlayerColor): Player {
+        return playersByColor[playerColor]!!
     }
 
     public fun getPlayersIncomeByColor(resourceGainMultiplier: Double): Map<PlayerColor, Map<ResourceType, Int>> {

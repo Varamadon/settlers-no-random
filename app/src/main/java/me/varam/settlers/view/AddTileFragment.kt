@@ -56,10 +56,9 @@ class AddTileFragment : Fragment() {
         binding.addTileAddButton.setOnClickListener {
             val selectedResourceType = binding.addTileResourceSelector.selectedItem as ResourceType
             val selectedToken = binding.addTileTokenSelector.selectedItem as Int
-            player.addTile(Tile(selectedResourceType, selectedToken))
 
             findNavController().navigate(
-                R.id.action_AddTileFragment_to_tileAddedFragment,
+                R.id.action_addTileFragment_to_tileAddedFragment,
                 Bundle().apply {
                     putSerializable(PLAYER_COLOR, playerColor)
                     putSerializable(RESOURCE_ADDED, selectedResourceType)

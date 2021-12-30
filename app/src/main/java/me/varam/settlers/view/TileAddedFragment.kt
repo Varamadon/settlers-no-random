@@ -5,9 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import me.varam.settlers.R
 import me.varam.settlers.databinding.FragmentTileAddedBinding
+import me.varam.settlers.model.Game
 import me.varam.settlers.model.PlayerColor
 import me.varam.settlers.model.ResourceType
+import me.varam.settlers.model.Tile
 
 const val RESOURCE_ADDED = "resourceAdded"
 const val TOKEN_ADDED = "tokenAdded"
@@ -48,6 +52,23 @@ class TileAddedFragment : Fragment() {
         preparePlayerLabel()
         binding.tileAddedTokenValue.text = tokenAdded.toString()
         binding.tileAddedResourceValue.text = resourceAdded.toString()
+
+        binding.tileAddedDoneButton.setOnClickListener {
+            addTileDo()
+        }
+
+        binding.tileAddedOneMoreButton.setOnClickListener {
+            addTileDo()
+
+            findNavController().navigate(
+                R.id.action_tileAddedFragment_to_addTileFragment
+            )
+        }
+    }
+
+    private fun addTileDo() {
+        val player = Game.getPlayerByColor(playerColor)
+        player.addTile(Tile(resourceAdded, tokenAdded))
     }
 
     private fun preparePlayerLabel() {
