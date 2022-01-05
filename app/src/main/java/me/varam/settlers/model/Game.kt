@@ -14,6 +14,10 @@ object Game {
         isStarted = true
     }
 
+    public fun getPlayerColors(): List<PlayerColor> {
+        return playersByColor.keys.toList()
+    }
+
     public fun addPlayer(player: Player) {
         playersByColor[player.color] = player
     }

@@ -27,4 +27,6 @@
     <string name="resource">Ресурс</string>
     <string name="revert">Отменить</string>
     <string name="no_value">Нет значения</string>
+    <string name="start_game">Начать игру</string>
+    <string name="add_player">Добавить игрока</string>
 </resources>
