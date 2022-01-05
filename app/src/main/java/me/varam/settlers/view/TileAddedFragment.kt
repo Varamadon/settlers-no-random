@@ -53,22 +53,31 @@ class TileAddedFragment : Fragment() {
         binding.tileAddedTokenValue.text = tokenAdded.toString()
         binding.tileAddedResourceValue.text = resourceAdded.toString()
 
-        binding.tileAddedDoneButton.setOnClickListener {
-            addTileDo()
+        binding.tileAddedRevertButton.setOnClickListener {
+            navigateBack()
         }
-
+        binding.tileAddedDoneButton.setOnClickListener {
+            doAddTile()
+            navigateBack()
+        }
         binding.tileAddedOneMoreButton.setOnClickListener {
-            addTileDo()
-
+            doAddTile()
             findNavController().navigate(
                 R.id.action_tileAddedFragment_to_addTileFragment
             )
         }
     }
 
-    private fun addTileDo() {
-        val player = Game.getPlayerByColor(playerColor)
-        player.addTile(Tile(resourceAdded, tokenAdded))
+    private fun navigateBack() {
+        findNavController().navigate(
+            if (Game.isStarted)
+                R.id.action_tileAddedFragment_to_playerFragment
+            else R.id.action_tileAddedFragment_to_playerAddedFragment
+        )
+    }
+
+    private fun doAddTile() {
+        Game.getPlayerByColor(playerColor).addTile(Tile(resourceAdded, tokenAdded))
     }
 
     private fun preparePlayerLabel() {
