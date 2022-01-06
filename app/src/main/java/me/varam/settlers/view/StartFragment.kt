@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import androidx.navigation.fragment.findNavController
 import me.varam.settlers.R
 import me.varam.settlers.databinding.FragmentStartBinding
 import me.varam.settlers.model.Game
@@ -38,13 +40,45 @@ class StartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Game.addPlayer(Player((PlayerColor.RED)))
-        Game.addPlayer(Player((PlayerColor.BLUE)))
+        prepareAddedPlayersList()
 
+        prepareStartColorSelector()
+
+        binding.startAddPlayerButton.setOnClickListener {
+            val selectedColor = binding.startColorSelector.selectedItem as PlayerColor
+            Game.addPlayer(Player(selectedColor))
+            findNavController().navigate(
+                R.id.action_startFragment_to_addTileFragment,
+                Bundle().apply {
+                    putSerializable(PLAYER_COLOR, selectedColor)
+                }
+            )
+        }
+
+        binding.startGameButton.setOnClickListener {
+            Game.startGame()
+            findNavController().navigate(R.id.action_startFragment_to_mainFragment)
+        }
+    }
+
+    private fun prepareAddedPlayersList() {
         val playersList = binding.startAddedPlayersList
         playersList.adapter = PlayerListAdapter(
             Game.getPlayerColors()
         )
+    }
+
+    private fun prepareStartColorSelector() {
+        val availablePlayerColors = PlayerColor.values().filter {
+            !Game.getPlayerColors().contains(it)
+        }
+        val startColorSelectorAdapter = ArrayAdapter(
+            this.requireContext(),
+            android.R.layout.simple_spinner_item,
+            availablePlayerColors
+        )
+        startColorSelectorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.startColorSelector.adapter = startColorSelectorAdapter
     }
 
     companion object {

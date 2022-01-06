@@ -32,9 +32,7 @@ class AddTileFragment : Fragment() {
             playerColor = it.get(PLAYER_COLOR) as PlayerColor
         }
 
-        prepareTest()
-
-        player = Game.getPlayerByColor(playerColor)!!
+        player = Game.getPlayerByColor(playerColor)
     }
 
     override fun onCreateView(
@@ -92,12 +90,6 @@ class AddTileFragment : Fragment() {
         )
         resourceSelectorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.addTileResourceSelector.adapter = resourceSelectorAdapter
-    }
-
-    private fun prepareTest() {
-        val testPlayer = Player(PlayerColor.ORANGE)
-        playerColor = testPlayer.color
-        Game.addPlayer(testPlayer)
     }
 
     companion object {

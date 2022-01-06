@@ -63,7 +63,10 @@ class TileAddedFragment : Fragment() {
         binding.tileAddedOneMoreButton.setOnClickListener {
             doAddTile()
             findNavController().navigate(
-                R.id.action_tileAddedFragment_to_addTileFragment
+                R.id.action_tileAddedFragment_to_addTileFragment,
+                Bundle().apply {
+                    putSerializable(PLAYER_COLOR, playerColor)
+                }
             )
         }
     }
@@ -72,7 +75,10 @@ class TileAddedFragment : Fragment() {
         findNavController().navigate(
             if (Game.isStarted)
                 R.id.action_tileAddedFragment_to_playerFragment
-            else R.id.action_tileAddedFragment_to_playerAddedFragment
+            else R.id.action_tileAddedFragment_to_playerAddedFragment,
+            Bundle().apply {
+                putSerializable(PLAYER_COLOR, playerColor)
+            }
         )
     }
 

@@ -17,8 +17,8 @@
     <fragment
         android:id="@+id/startFragment"
         android:name="me.varam.settlers.view.StartFragment"
-        android:label="fragment_start"
-        tools:layout="@layout/fragment_start" >
+        android:label="@string/start_screen"
+        tools:layout="@layout/fragment_start">
         <action
             android:id="@+id/action_startFragment_to_addTileFragment"
             app:destination="@id/addTileFragment" />
@@ -44,8 +44,8 @@
     <fragment
         android:id="@+id/playerAddedFragment"
         android:name="me.varam.settlers.view.PlayerAddedFragment"
-        android:label="fragment_player_added"
-        tools:layout="@layout/fragment_player_added" >
+        android:label="@string/player_added"
+        tools:layout="@layout/fragment_player_added">
         <action
             android:id="@+id/action_playerAddedFragment_to_startFragment"
             app:destination="@id/startFragment" />

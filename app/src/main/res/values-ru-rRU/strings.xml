@@ -29,4 +29,7 @@
     <string name="no_value">Нет значения</string>
     <string name="start_game">Начать игру</string>
     <string name="add_player">Добавить игрока</string>
+    <string name="added_players">Добавленные игроки</string>
+    <string name="player_added">Игрок добавлен</string>
+    <string name="start_screen">Стартовый экран</string>
 </resources>

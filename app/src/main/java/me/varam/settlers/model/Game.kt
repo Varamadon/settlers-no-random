@@ -7,26 +7,33 @@ package me.varam.settlers.model
 object Game {
 
     private val playersByColor: MutableMap<PlayerColor, Player> = mutableMapOf()
-    public var isStarted = false
+    var isStarted = false
         private set
 
-    public fun startGame() {
+    fun startGame() {
         isStarted = true
     }
 
-    public fun getPlayerColors(): List<PlayerColor> {
+    fun getPlayerColors(): List<PlayerColor> {
         return playersByColor.keys.toList()
     }
 
-    public fun addPlayer(player: Player) {
+    fun addPlayer(player: Player) {
         playersByColor[player.color] = player
     }
 
-    public fun getPlayerByColor(playerColor: PlayerColor): Player {
+    fun getPlayerByColor(playerColor: PlayerColor): Player {
         return playersByColor[playerColor]!!
     }
 
-    public fun getPlayersIncomeByColor(resourceGainMultiplier: Double): Map<PlayerColor, Map<ResourceType, Int>> {
+    fun removePlayerByColor(playerColor: PlayerColor) {
+        if (isStarted) throw GameStartedException("Can not remove player mid game!")
+        playersByColor.remove(playerColor)
+    }
+
+    fun getPlayersIncomeByColor(resourceGainMultiplier: Double): Map<PlayerColor, Map<ResourceType, Int>> {
         return playersByColor.values.associateBy({ it.color }) { it.getIncome(resourceGainMultiplier) }
     }
 }
+
+class GameStartedException(message: String) : RuntimeException(message)
