@@ -53,8 +53,8 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="me.varam.settlers.view.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+        android:label="@string/main_screen"
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_playerFragment"
             app:destination="@id/playerFragment" />

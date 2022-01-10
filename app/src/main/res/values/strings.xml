@@ -34,4 +34,6 @@
     <string name="added_players">Added players</string>
     <string name="player_added">Player added</string>
     <string name="start_screen">Start screen</string>
+    <string name="next_turn">Next turn</string>
+    <string name="main_screen">Main screen</string>
 </resources>
