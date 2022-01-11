@@ -40,7 +40,14 @@ class MainFragment : Fragment() {
         val playersList = binding.mainPlayersList
         playersList.adapter = PlayerListAdapter(
             Game.getPlayerColors()
-        )
+        ) {
+            findNavController().navigate(
+                R.id.action_mainFragment_to_playerFragment,
+                Bundle().apply {
+                    putSerializable(PLAYER_COLOR, it)
+                }
+            )
+        }
 
         binding.nextTurnButton.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_incomeFragment)

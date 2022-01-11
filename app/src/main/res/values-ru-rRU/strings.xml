@@ -34,4 +34,6 @@
     <string name="start_screen">Стартовый экран</string>
     <string name="next_turn">Следующий ход</string>
     <string name="main_screen">Главный экран</string>
+    <string name="go_back">Назад</string>
+    <string name="player_screen">Экран игрока</string>
 </resources>

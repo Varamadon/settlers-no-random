@@ -36,4 +36,6 @@
     <string name="start_screen">Start screen</string>
     <string name="next_turn">Next turn</string>
     <string name="main_screen">Main screen</string>
+    <string name="go_back">Go back</string>
+    <string name="player_screen">Player screen</string>
 </resources>

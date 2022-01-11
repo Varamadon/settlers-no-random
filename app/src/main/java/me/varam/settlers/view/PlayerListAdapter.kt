@@ -8,17 +8,23 @@ import androidx.recyclerview.widget.RecyclerView
 import me.varam.settlers.R
 import me.varam.settlers.model.PlayerColor
 
-class PlayerListAdapter(private val playerColorsList: List<PlayerColor>) :
+class PlayerListAdapter(
+    private val playerColorsList: List<PlayerColor>,
+    private val onClick: (PlayerColor) -> Unit
+) :
     RecyclerView.Adapter<PlayerListAdapter.ViewHolder>() {
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).
      */
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(private val view: View) :
+        RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.listPlayerColorLabel)
 
-        init {
-            // Define click listener for the ViewHolder's View.
+        fun setOnClick(onClick:() -> Unit) {
+            view.setOnClickListener {
+                onClick()
+            }
         }
     }
 
@@ -37,6 +43,7 @@ class PlayerListAdapter(private val playerColorsList: List<PlayerColor>) :
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
         val playerColor = playerColorsList[position]
+        viewHolder.setOnClick { onClick(playerColor) }
         viewHolder.textView.setText(playerNameMap[playerColor]!!)
         viewHolder.textView.setTextColor(playerColorMap[playerColor]!!)
     }

@@ -65,7 +65,14 @@ class StartFragment : Fragment() {
         val playersList = binding.startAddedPlayersList
         playersList.adapter = PlayerListAdapter(
             Game.getPlayerColors()
-        )
+        ) {
+            findNavController().navigate(
+                R.id.action_startFragment_to_playerFragment,
+                Bundle().apply {
+                    putSerializable(PLAYER_COLOR, it)
+                }
+            )
+        }
     }
 
     private fun prepareStartColorSelector() {

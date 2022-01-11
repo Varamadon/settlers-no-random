@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_startFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_playerFragment"
+            app:destination="@id/playerFragment" />
     </fragment>
     <fragment
         android:id="@+id/tileAddedFragment"
@@ -65,8 +68,8 @@
     <fragment
         android:id="@+id/playerFragment"
         android:name="me.varam.settlers.view.PlayerFragment"
-        android:label="fragment_player"
-        tools:layout="@layout/fragment_player" >
+        android:label="@string/player_screen"
+        tools:layout="@layout/fragment_player">
         <action
             android:id="@+id/action_playerFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
