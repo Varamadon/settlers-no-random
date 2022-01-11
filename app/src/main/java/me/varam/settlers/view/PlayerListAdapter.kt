@@ -1,5 +1,6 @@
 package me.varam.settlers.view
 
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,9 +44,13 @@ class PlayerListAdapter(
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
         val playerColor = playerColorsList[position]
+        val textView = viewHolder.textView
         viewHolder.setOnClick { onClick(playerColor) }
-        viewHolder.textView.setText(playerNameMap[playerColor]!!)
-        viewHolder.textView.setTextColor(playerColorMap[playerColor]!!)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            textView.setTextAppearance(R.style.TextAppearance_AppCompat_Large)
+        }
+        textView.setText(playerNameMap[playerColor]!!)
+        textView.setTextColor(playerColorMap[playerColor]!!)
     }
 
     // Return the size of your dataset (invoked by the layout manager)

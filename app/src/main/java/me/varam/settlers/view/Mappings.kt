@@ -6,7 +6,7 @@ import me.varam.settlers.model.PlayerColor
 
 val playerColorMap = mapOf(
     Pair(PlayerColor.RED, Color.RED),
-    Pair(PlayerColor.WHITE, Color.WHITE),
+    Pair(PlayerColor.WHITE, Color.LTGRAY),
     Pair(PlayerColor.BROWN, Color.rgb(139,69,19)),
     Pair(PlayerColor.BLUE, Color.BLUE),
     Pair(PlayerColor.YELLOW, Color.YELLOW),
