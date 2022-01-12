@@ -9,7 +9,7 @@ val playerColorMap = mapOf(
     Pair(PlayerColor.WHITE, Color.LTGRAY),
     Pair(PlayerColor.BROWN, Color.rgb(139,69,19)),
     Pair(PlayerColor.BLUE, Color.BLUE),
-    Pair(PlayerColor.YELLOW, Color.YELLOW),
+    Pair(PlayerColor.YELLOW, Color.rgb(255, 215, 0)),
     Pair(PlayerColor.ORANGE, Color.rgb(255, 165, 0)),
     Pair(PlayerColor.BLACK, Color.BLACK),
     Pair(PlayerColor.GREEN, Color.GREEN)
