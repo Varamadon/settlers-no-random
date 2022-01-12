@@ -41,6 +41,9 @@ class PlayerAddedFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         preparePlayerLabel()
+        val player = Game.getPlayerByColor(playerColor)
+        val tilesList = binding.playerAddedTilesList
+        tilesList.adapter = TileListAdapter(player.getTiles())
 
         binding.playerAddedDoneButton.setOnClickListener {
             findNavController().navigate(R.id.action_playerAddedFragment_to_startFragment)
