@@ -17,6 +17,10 @@ class Player(val color: PlayerColor) {
         Pair(ResourceType.GOLD, 0.0)
     )
 
+    fun getTiles(): List<Tile> {
+        return tiles.toList()
+    }
+
     public fun addTile(tile: Tile) {
         tiles.add(tile)
     }

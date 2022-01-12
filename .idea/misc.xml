@@ -16,7 +16,9 @@
         <entry key="..\:/Code/settlers-no-random/app/src/main/res/layout/fragment_second.xml" value="0.18432971014492755" />
         <entry key="..\:/Code/settlers-no-random/app/src/main/res/layout/fragment_start.xml" value="0.2101851851851852" />
         <entry key="..\:/Code/settlers-no-random/app/src/main/res/layout/fragment_tile_added.xml" value="0.2" />
+        <entry key="..\:/Code/settlers-no-random/app/src/main/res/layout/players_list_row_item.xml" value="0.1912037037037037" />
         <entry key="..\:/Code/settlers-no-random/app/src/main/res/layout/text_row_item.xml" value="0.2101851851851852" />
+        <entry key="..\:/Code/settlers-no-random/app/src/main/res/layout/tiles_list_row_item.xml" value="0.2" />
         <entry key="..\:/Code/settlers-no-random/app/src/main/res/menu/menu_main.xml" value="0.23645833333333333" />
       </map>
     </option>

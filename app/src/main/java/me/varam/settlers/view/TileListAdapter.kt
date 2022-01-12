@@ -1,39 +1,32 @@
 package me.varam.settlers.view
 
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import me.varam.settlers.R
-import me.varam.settlers.model.PlayerColor
+import me.varam.settlers.model.Tile
 
-class PlayerListAdapter(
-    private val playerColorsList: List<PlayerColor>,
-    private val onClick: (PlayerColor) -> Unit
+class TileListAdapter(
+    private val tilesList: List<Tile>
 ) :
-    RecyclerView.Adapter<PlayerListAdapter.ViewHolder>() {
+    RecyclerView.Adapter<TileListAdapter.ViewHolder>() {
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).
      */
-    class ViewHolder(private val view: View) :
+    class ViewHolder(view: View) :
         RecyclerView.ViewHolder(view) {
-        val textView: TextView = view.findViewById(R.id.listPlayerColorLabel)
-
-        fun setOnClick(onClick:() -> Unit) {
-            view.setOnClickListener {
-                onClick()
-            }
-        }
+        val resourceLabel: TextView = view.findViewById(R.id.tileResourceLabel)
+        val tokenLabel: TextView = view.findViewById(R.id.tileTokenLabel)
     }
 
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.players_list_row_item, viewGroup, false)
+            .inflate(R.layout.tiles_list_row_item, viewGroup, false)
 
         return ViewHolder(view)
     }
@@ -43,13 +36,11 @@ class PlayerListAdapter(
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        val playerColor = playerColorsList[position]
-        val textView = viewHolder.textView
-        viewHolder.setOnClick { onClick(playerColor) }
-        textView.setText(playerNameMap[playerColor]!!)
-        textView.setTextColor(playerColorMap[playerColor]!!)
+        val tile = tilesList[position]
+        viewHolder.resourceLabel.text = tile.resourceType.toString()
+        viewHolder.tokenLabel.text = tile.numberToken.toString()
     }
 
     // Return the size of your dataset (invoked by the layout manager)
-    override fun getItemCount() = playerColorsList.size
+    override fun getItemCount() = tilesList.size
 }
