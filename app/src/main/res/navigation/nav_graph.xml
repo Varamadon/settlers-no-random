@@ -76,6 +76,9 @@
         <action
             android:id="@+id/action_playerFragment_to_addTileFragment"
             app:destination="@id/addTileFragment" />
+        <action
+            android:id="@+id/action_playerFragment_to_startFragment"
+            app:destination="@id/startFragment" />
     </fragment>
     <fragment
         android:id="@+id/incomeFragment"

@@ -36,4 +36,5 @@
     <string name="main_screen">Главный экран</string>
     <string name="go_back">Назад</string>
     <string name="player_screen">Экран игрока</string>
+    <string name="tiles_list">Список тайлов</string>
 </resources>

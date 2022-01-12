@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import me.varam.settlers.R
 import me.varam.settlers.databinding.FragmentPlayerBinding
 import me.varam.settlers.model.Game
@@ -42,6 +43,34 @@ class PlayerFragment : Fragment() {
         val player = Game.getPlayerByColor(playerColor)
         val tilesList = binding.playerTilesList
         tilesList.adapter = TileListAdapter(player.getTiles())
+        preparePlayerLabel()
+
+        binding.playerAddTileButton.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_playerFragment_to_addTileFragment,
+                Bundle().apply {
+                    putSerializable(PLAYER_COLOR, playerColor)
+                }
+            )
+        }
+
+        binding.playerBackButton.setOnClickListener {
+            navigateBack()
+        }
+    }
+
+    private fun navigateBack() {
+        findNavController().navigate(
+            if (Game.isStarted)
+                R.id.action_playerFragment_to_mainFragment
+            else R.id.action_playerFragment_to_startFragment
+        )
+    }
+
+    private fun preparePlayerLabel() {
+        val playerColorLabel = binding.playerColorLabel
+        playerColorLabel.setText(playerNameMap[playerColor]!!)
+        playerColorLabel.setTextColor(playerColorMap[playerColor]!!)
     }
 
     companion object {
