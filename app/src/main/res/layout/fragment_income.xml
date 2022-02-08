@@ -5,4 +5,25 @@
     android:id="@+id/frameLayout6"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.IncomeFragment"/>
+    tools:context=".view.IncomeFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/incomeList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/incomeDoneButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/incomeDoneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:text="@string/done"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
